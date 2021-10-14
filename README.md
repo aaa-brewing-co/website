@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# AAA Brewing Co
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bce7483d-5d51-4b42-a084-c94fdbb13401/deploy-status)](https://app.netlify.com/sites/aaa-brewing-co/deploys)
+
+## Created with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
