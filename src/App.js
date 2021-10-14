@@ -1,15 +1,23 @@
-import logo from './logo.png';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+
 import './App.css';
 
-function App() {
+// import pages
+import Home from './components/Home';
+import About from './components/About';
+import Locations from './components/Locations';
+import Error from "./components/Error";
+
+function App()  {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          AAA Brewing Co
-        </p>
-      </header>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/locations" component={Locations} />
+        <Route component={Error} />
+      </Switch>
     </div>
   );
 }
