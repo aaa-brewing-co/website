@@ -1,12 +1,14 @@
 import React from "react";
 
-import Header from "./Header";
+import Navbar from "./Navbar";
+import Map from "./Map";
 
 function Locations() {
   return (
-    <div class="locations">
-      <Header />
+    <div className="locations">
+      <Navbar />
       <h1>Locations</h1>
+      <Map />
     </div>
   );
 };

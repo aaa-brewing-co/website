@@ -23,14 +23,22 @@
 }
 
 /* Navigation */
+nav {
+  width: 100%;
+  padding: 1vh;
+  background: black;
+}
+
 nav > ul > li {
   display: inline-flex;
   margin: 0 1em;
 }
 
 nav > ul > li > a {
-  color: white;
+  color: #faeede;
+  text-decoration: none;
 }
 nav > ul > li > a:hover {
   color: #f0ae2c;
+  text-decoration: underline;
 }
