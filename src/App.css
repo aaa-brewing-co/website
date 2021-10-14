@@ -21,3 +21,16 @@
 .App-link {
   color: #61dafb;
 }
+
+/* Navigation */
+nav > ul > li {
+  display: inline-flex;
+  margin: 0 1em;
+}
+
+nav > ul > li > a {
+  color: white;
+}
+nav > ul > li > a:hover {
+  color: #f0ae2c;
+}

@@ -1,0 +1,14 @@
+import React from "react";
+
+import Header from "./Header";
+
+function About() {
+  return (
+    <div class="about">
+      <Header />
+      <h1>About</h1>
+    </div>
+  );
+};
+
+export default About;
