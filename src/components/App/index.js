@@ -1,20 +1,20 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import './App.css';
+import './style.css';
 
 // import pages
-import Home from './components/Home';
-import About from './components/About';
-import Locations from './components/Locations';
-import Error from "./components/Error";
+import Home from '../Home';
+import Beer from '../Beer';
+import Locations from '../Locations';
+import Error from "../Error";
 
 function App()  {
   return (
     <div className="App">
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
+        <Route path="/beer" component={Beer} />
         <Route path="/locations" component={Locations} />
         <Route component={Error} />
       </Switch>
