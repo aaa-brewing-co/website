@@ -23,6 +23,10 @@
   color: var(--main-text-color);
 }
 
+.App > div {
+  background: var(--main-body-color);
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
