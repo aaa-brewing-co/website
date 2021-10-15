@@ -1,20 +1,23 @@
 import React from "react";
 
 import Navbar from "../commons/Navbar";
+import cat from '../../assets/cat.jpg';
 
 function About() {
   return (
     <div className="about">
       <Navbar />
       <div className="main">
-        <h2>What is Craft Beer?</h2>
+        <h1>What is Craft Beer?</h1>
         <p>blah blah blah</p>
 
-        <h2>Beer Styles</h2>
+        <h1>Beer Styles</h1>
         <p>blah blah blah</p>
 
-        <h2>Beer Tasting Guide</h2>
+        <h1>Beer Tasting Guide</h1>
         <p>blah blah blah</p>
+
+        <img src={cat} alt="cat" />
       </div>
     </div>
   );
