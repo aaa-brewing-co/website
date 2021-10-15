@@ -2,9 +2,10 @@
 :root {
   --site-border: 25px;
 
-  --main-color: #005b55;
-  --secondary-color: #ffe7d2;
-  --tertiary-color: #f0ae2c;
+  --main-color: #f0ae2c;
+  --secondary-color: #fff7f1;
+  --tertiary-color: #005b55;
+  /* --quaternary-color: ; */
 
   --main-bg-color: var(--main-color);
   --main-body-color: var(--secondary-color);
@@ -12,6 +13,11 @@
   --nav-bg-color: var(--secondary-color);
   --nav-link-color: var(--main-color);
   --nav-linkhover-color: var(--tertiary-color);
+}
+
+html {
+  min-height: 100vh;
+  background-color: var(--main-bg-color);
 }
 
 
@@ -28,13 +34,13 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 200px;
   pointer-events: none;
 }
 
 .App-header {
   background-color: var(--main-body-color);
-  min-height: 85vh;
+  min-height: 84vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,12 +55,19 @@
 
 /* Navigation */
 nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   padding: 1vh 0;
   background: var(--nav-bg-color);
   text-transform: uppercase;
-  font-size: 1.5em;
+  font-size: 2.5vmin;
   font-weight: bolder;
+}
+
+nav > ul {
+  padding: 0;
 }
 
 nav > ul > li {
@@ -73,7 +86,7 @@ nav > ul > li > a:hover {
 
 /* Main */
 .main {
-  min-height: 85vh;
+  min-height: 84vh;
   display: flex;
   flex-direction: column;
   align-items: center;
