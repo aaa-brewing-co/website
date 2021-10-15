@@ -1,5 +1,26 @@
+/* Custom Properties */
+:root {
+  --site-border: 25px;
+
+  --main-color: #005b55;
+  --secondary-color: #ffe7d2;
+  --tertiary-color: #f0ae2c;
+
+  --main-bg-color: var(--main-color);
+  --main-body-color: var(--secondary-color);
+  --main-text-color: var(--main-color);
+  --nav-bg-color: var(--secondary-color);
+  --nav-link-color: var(--main-color);
+  --nav-linkhover-color: var(--tertiary-color);
+}
+
+
+/* App Styles */
 .App {
   text-align: center;
+  padding: var(--site-border);
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
 }
 
 .App-logo {
@@ -8,14 +29,14 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: var(--main-body-color);
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--main-text-color);
 }
 
 .App-link {
@@ -25,20 +46,33 @@
 /* Navigation */
 nav {
   width: 100%;
-  padding: 1vh;
-  background: black;
+  padding: 1vh 0;
+  background: var(--nav-bg-color);
+  text-transform: uppercase;
+  font-size: 1.5em;
+  font-weight: bolder;
 }
 
 nav > ul > li {
   display: inline-flex;
-  margin: 0 1em;
+  margin: 0 3em;
 }
 
 nav > ul > li > a {
-  color: #faeede;
+  color: var(--nav-link-color);
   text-decoration: none;
 }
 nav > ul > li > a:hover {
-  color: #f0ae2c;
+  /* color: var(--nav-linkhover-color); */
   text-decoration: underline;
+}
+
+/* Main */
+.main {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: initial;
+  background: var(--main-body-color);
 }
