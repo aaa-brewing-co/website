@@ -4,15 +4,19 @@
   height: 80vh;
 }
 
+.header {
+  font-size: 7vmin;
+}
+
 .places {
   display: flex;
   flex-wrap: wrap;
-  padding: 1vh;
+  padding: 3vmin;
 }
 
 .place {
   flex: 1 0 21%;
-  margin: 10px;
+  margin: 2vmin;
   height: 200px;
   background-color: var(--tertiary-color);
 }
