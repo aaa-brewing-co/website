@@ -6,7 +6,9 @@ function Locations() {
   return (
     <div className="locations">
       <Navbar />
-      <h1>Locations</h1>
+      <div className="main">
+        <p>insert map here when googoo finally fixes the peer dependencies lol</p>
+      </div>
     </div>
   );
 };
