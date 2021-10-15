@@ -1,7 +1,7 @@
 import React from "react";
 
 import Header from "../commons/Header";
-import Navbar from "../Navbar";
+import Navbar from "../commons/Navbar";
 
 function Home() {
   return (
