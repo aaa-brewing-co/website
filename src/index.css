@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(''),
+    url('./fonts/titillium-web-v10-latin-regular.woff2') format('woff2'),
+    url('./fonts/titillium-web-v10-latin-regular.woff') format('woff');
+}
+
 body {
   margin: 0;
   font-family: 'Titillium Web', sans-serif;
