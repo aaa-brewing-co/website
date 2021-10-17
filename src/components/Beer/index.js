@@ -17,7 +17,7 @@ function About() {
         <h1>Beer Tasting Guide</h1>
         <p>blah blah blah</p>
 
-        <img src={cat} alt="cat" />
+        <img src={cat} alt="cat" loading="lazy" width="400" height="308"/>
       </div>
     </div>
   );
