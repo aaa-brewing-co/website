@@ -1,21 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Navbar from "../commons/Navbar";
 import './style.css';
 
+import { getAllLocations } from "../../api";
+
 function Locations() {
+  const [locations, setLocations] = useState([])
+
+  useEffect(() => {
+    getAllLocations.then(res => {
+      setLocations(res);
+      // console.log(res);
+    })
+  }, [])
+
   return (
     <div className="locations">
       <Navbar />
       <div className="main">
         <div className="map">
-          <p>insert map here when googoo finally fixes the peer dependencies lol</p>
+          <iframe
+            title="Alcoholism Map"
+            src="https://www.google.com/maps/d/embed?mid=1qJoIvzA7n9oyeCC56xRU-HvsuAA-k_sv&hl=en">
+          </iframe>
         </div>
-      </div>
 
-      <h2>Beer Spots</h2>
-      <div className="places"> {/* TODO - get via db */}
-        {/* <div class="place"></div> */}
+        <h1>Beer Spots</h1>
+        <div className="places">
+          {locations &&
+            locations.map(locations => (
+              <div className="place" key={locations.ref.id}>
+                <h3>{locations.data.name}</h3>
+                <p>{locations.data.address}</p>
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );
