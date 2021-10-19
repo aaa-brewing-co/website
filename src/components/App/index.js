@@ -7,6 +7,7 @@ import './style.css';
 import Home from '../Home';
 import Beer from '../Beer';
 import Locations from '../Locations';
+import Admin from '../Admin';
 import Error from "../Error";
 
 function App()  {
@@ -16,6 +17,7 @@ function App()  {
         <Route exact path="/" component={Home} />
         <Route path="/beer" component={Beer} />
         <Route path="/locations" component={Locations} />
+        <Route path="/admin" component={Admin} />
         <Route component={Error} />
       </Switch>
     </div>
