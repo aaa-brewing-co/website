@@ -3,14 +3,14 @@ import './beer-animation.css';
 
 function BeerAnimation() {
   return (
-<div class="beer-animation">
-    <div class="container">
-        <div class="mug">
-            <div class="beer"></div>
+<div className="beer-animation">
+    <div className="container">
+        <div className="mug">
+            <div className="beer"></div>
         </div>
-        <div class="bubble"></div>
-        <div class="small-bubbles"></div>
-        <div class="drip"></div>
+        <div className="bubble"></div>
+        <div className="small-bubbles"></div>
+        <div className="drip"></div>
     </div>
 </div>
   );
