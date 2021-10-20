@@ -4,7 +4,7 @@ import Navbar from "../commons/Navbar";
 import './style.css';
 
 import CreateForm from "./CreateForm";
-import { getAllLocations, editLocation } from "../../api";
+import { getAllLocations } from "../../api";
 
 function Admin() {
   const [locations, setLocations] = useState([]);
