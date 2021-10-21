@@ -4,7 +4,7 @@ import Navbar from "../commons/Navbar";
 import './style.scss';
 
 import CreateForm from "./CreateForm";
-import { getAllLocations } from "../../api";
+import { getAllLocations, deleteLocation } from "../../api";
 
 function Admin() {
   const [locations, setLocations] = useState([]);
@@ -20,6 +20,19 @@ function Admin() {
       // console.log(res);
     });
   }, []);
+
+  function handleDelete(e, id) {
+    e.preventDefault();
+    var confirm = window.confirm('R U SURE WANNA DELETE?');
+    if (confirm) {
+      deleteLocation(id).then(res => res);
+      const newLocationsArray = locations.filter(note => note.ref.id !== id);
+      setLocations(newLocationsArray);
+      alert("rip to this location 🕊️");
+    } else {
+      alert("okie i never delete");
+    }
+  }
 
   return (
     <div className="admin">
@@ -58,7 +71,9 @@ function Admin() {
                   <button data-value={locations.ref.id} type="button">✏️</button>
                 </td>
                 <td>
-                  <button type="button">🗑️</button>
+                  <button
+                    onClick={(e) => handleDelete(e, locations.ref.id)}
+                    type="button">🗑️</button>
                 </td>
               </tr>
           ))}
