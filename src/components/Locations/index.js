@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import Navbar from "../commons/Navbar";
-import './style.css';
+import './style.scss';
 
 import { getAllLocations } from "../../api";
 
@@ -26,7 +26,7 @@ function Locations() {
           </iframe>
         </div>
 
-        <h1>Beer Spots</h1>
+        <h1 className="title my-3">Beer Spots</h1>
         <div className="places">
           {locations &&
             locations.map(locations => (

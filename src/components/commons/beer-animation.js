@@ -1,5 +1,5 @@
 import React from "react";
-import './beer-animation.css';
+import './beer-animation.scss';
 
 function BeerAnimation() {
   return (

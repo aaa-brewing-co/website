@@ -23,7 +23,6 @@ html {
 
 /* App Styles */
 .App {
-  text-align: center;
   padding: var(--site-border);
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
@@ -59,7 +58,7 @@ nav {
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 1vh 0;
+  padding: 1rem 0;
   background: var(--nav-bg-color);
   text-transform: uppercase;
   font-size: 2.5vmin;
