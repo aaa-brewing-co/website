@@ -21,22 +21,39 @@ function CreateForm() {
 
   return (
     <form>
-      <div>
-        <input ref={name} type="text" name="name" placeholder="Name" required/>
+      <div className="field">
+        <label className="label">Name</label>
+        <div className="control">
+          <input className="input" ref={name} type="text" name="name" placeholder="Name" required/>
+        </div>
       </div>
-      <div>
-        <input ref={price} type="text" name="price" placeholder="Price"  required/>
+      <div className="field">
+        <label className="label">Price</label>
+        <div className="control">
+          <input className="input" ref={price} type="text" name="price" placeholder="Price"  required/>
+        </div>
       </div>
-      <div>
-        <input ref={address} type="text" name="address" placeholder="Address"  required/>
+      <div className="field">
+        <label className="label">Address</label>
+        <div className="control">
+          <input className="input" ref={address} type="text" name="address" placeholder="Address"  required/>
+        </div>
       </div>
-      <div>
-        <input ref={lon} type="text" name="lon" placeholder="Longitude"  required/>
+      <div className="field">
+        <label className="label">Longitude</label>
+        <div className="control">
+          <input className="input" ref={lon} type="text" name="lon" placeholder="Longitude"  required/>
+        </div>
       </div>
-      <div>
-        <input ref={lat} type="text" name="lat" placeholder="Latitude"  required/>
+      <div className="field">
+        <label className="label">Latitude</label>
+        <div className="control">
+          <input className="input" ref={lat} type="text" name="lat" placeholder="Latitude"  required/>
+        </div>
       </div>
-      <button onClick={handleCreate}  type="submit">Create</button>
+      <div className="field">
+        <button className="button is-primary" onClick={handleCreate}  type="submit">Create</button>
+      </div>
     </form>
   );
 };

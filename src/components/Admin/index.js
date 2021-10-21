@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import Navbar from "../commons/Navbar";
-import './style.css';
+import './style.scss';
 
 import CreateForm from "./CreateForm";
 import { getAllLocations, deleteLocation } from "../../api";
@@ -38,13 +38,19 @@ function Admin() {
     <div className="admin">
       <Navbar />
       <div className="main">
-        <button type="button" onClick={toggleClass}>Add Location</button>
-        <div className={isActive ? null : 'hide'}>
-          <CreateForm/>
+        <button className="button is-primary" type="button" onClick={toggleClass}>Add Location</button>
+
+        <div className={isActive ? 'modal is-active' : 'modal'}>
+          <div className="modal-background"></div>
+          <div className="modal-content has-background-white p-6">
+            <CreateForm/>
+          </div>
+          <button className="modal-close is-large" onClick={toggleClass} aria-label="close"></button>
         </div>
 
-        <h1>Locations</h1>
-        <table>
+        <h1 className="title is-3 my-3">Locations</h1>
+
+        <table className="table">
           <tr>
             <th>Name</th>
             <th>Price</th>
