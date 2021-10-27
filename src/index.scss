@@ -1,4 +1,8 @@
-@import 'bulma';
+// @import 'bulma';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @font-face {
   font-family: 'Titillium Web';
