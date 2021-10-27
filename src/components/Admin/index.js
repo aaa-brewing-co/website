@@ -55,6 +55,9 @@ function Admin() {
             <th>Name</th>
             <th>Price</th>
             <th>Address</th>
+            <th>Google Maps</th>
+            <th>Website</th>
+            <th>Untappd</th>
             <th>Longitude</th>
             <th>Latitude</th>
             <th></th>
@@ -65,6 +68,9 @@ function Admin() {
                 <td>{locations.data.name}</td>
                 <td>{locations.data.price}</td>
                 <td>{locations.data.address}</td>
+                <td>{locations.data.googleMap}</td>
+                <td>{locations.data.website}</td>
+                <td>{locations.data.untappd}</td>
                 <td>{locations.data.lon}</td>
                 <td>{locations.data.lat}</td>
                 <td>
