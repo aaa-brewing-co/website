@@ -1,6 +1,6 @@
 import { client, q } from '../config/db.js'
 
-const createLocation = (name, price, address, lon, lat) =>
+const createLocation = (name, price, address, googleMap, website, untappd, lon, lat) =>
   client
     .query(
       q.Create(q.Collection('locations'), {
@@ -8,6 +8,9 @@ const createLocation = (name, price, address, lon, lat) =>
           name,
           price,
           address,
+          googleMap,
+          website,
+          untappd,
           lon,
           lat,
         }

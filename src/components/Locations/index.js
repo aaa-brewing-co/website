@@ -26,7 +26,7 @@ function Locations() {
           </iframe>
         </div>
 
-        <h1 className="title my-3">Beer Spots</h1>
+        <h1 className="title my-6">Beer Spots</h1>
         <div className="places">
           {locations &&
             locations.map(locations => (
@@ -45,7 +45,9 @@ function Locations() {
                   <p>Tumeric kogi truffaut, ugh migas gluten-free flannel. Glossier enamel pin synth, tbh tattooed you probably haven't heard of them tumeric williamsburg.</p>
                   <br/>
                   <p>{locations.data.address}</p>
-                  <p><a href={locations.data.website}>{locations.data.website}</a></p>
+                  <p>
+                    <a href={locations.data.website}>Website</a> | <a href={locations.data.googleMap}>Google Map</a>
+                  </p>
                 </div>
 
               </div>
