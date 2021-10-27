@@ -28,6 +28,7 @@ function Locations() {
 
         <h1 className="title my-6">Beer Spots</h1>
         <div className="places">
+          {/* TODO - LIMIT TO 6 + SHOW MORE */}
           {locations &&
             locations.map(locations => (
               <div className="place" key={locations.ref.id}>
