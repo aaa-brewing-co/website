@@ -31,8 +31,23 @@ function Locations() {
           {locations &&
             locations.map(locations => (
               <div className="place" key={locations.ref.id}>
-                <h3>{locations.data.name}</h3>
-                <p>{locations.data.address}</p>
+                <h2>{locations.data.name}</h2>
+                <div className="meta">
+                  <div className="price">
+                    Price Range:
+                    {locations.data.price}
+                  </div>
+                  <div className="untappd">
+                    <a href={locations.data.untappd}>untappd</a>
+                  </div>
+                </div>
+                <div className="details">
+                  <p>Tumeric kogi truffaut, ugh migas gluten-free flannel. Glossier enamel pin synth, tbh tattooed you probably haven't heard of them tumeric williamsburg.</p>
+                  <br/>
+                  <p>{locations.data.address}</p>
+                  <p><a href={locations.data.website}>{locations.data.website}</a></p>
+                </div>
+
               </div>
             ))}
         </div>

@@ -17,20 +17,43 @@ iframe {
 .places {
   display: flex;
   flex-wrap: wrap;
-  padding: 3vmin;
+  padding: 5rem;
 }
 
 .place {
+  position: relative;
   padding: 1rem;
-  flex: 1 0 21%;
+  flex: 1 0 31%;
   margin: 2vmin;
-  height: 200px;
-  background-color: var(--tertiary-color);
-  text-align: center;
+  height: 250px;
+  color: var(--tertiary-color);
 
-  h3 {
-    font-size: 1.2rem;
+  h2 {
+    font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: -.01em;
+
+    &:before {
+      position: absolute;
+      content: "";
+      display: block;
+      background-color: var(--tertiary-color);
+      height: 2px;
+      width: 100%;
+      top: 0;
+    }
+  }
+
+  .details {
+    margin-top: 2rem;
   }
 }
