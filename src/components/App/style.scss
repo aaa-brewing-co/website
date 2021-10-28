@@ -20,6 +20,12 @@ html {
   background-color: var(--main-bg-color);
 }
 
+body {
+  min-height: 85vh;
+  z-index: 1;
+  margin-bottom: 20vh;
+  background: var(--main-body-color);
+}
 
 /* App Styles */
 .App {
@@ -50,13 +56,6 @@ html {
 
 .App-link {
   color: #61dafb;
-}
-
-body {
-  min-height: 85vh;
-  z-index: 1;
-  margin-bottom: 20vh;
-  background: var(--main-body-color);
 }
 
 /* Main */
