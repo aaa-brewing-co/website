@@ -9,6 +9,7 @@ import Beer from '../Beer';
 import Locations from '../Locations';
 import Admin from '../Admin';
 import Error from "../Error";
+import Footer from "../commons/Footer";
 
 function App()  {
   return (
@@ -20,6 +21,7 @@ function App()  {
         <Route path="/admin" component={Admin} />
         <Route component={Error} />
       </Switch>
+      <Footer/>
     </div>
   );
 }

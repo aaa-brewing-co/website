@@ -34,8 +34,13 @@ iframe {
     margin: 2vmin;
     color: var(--tertiary-color);
 
+    @media screen and (max-width: 767px) {
+      height: auto;
+      flex: 1 0 100%;
+    }
+
     h2 {
-      font-size: 1.5rem;
+      font-size: 2em;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
@@ -58,13 +63,29 @@ iframe {
         top: 0;
       }
 
-      .untappd-logo {
-        width: 180px;
+      .price {
+        font-size: 1.5em;
       }
+
+      .untappd-logo {
+        width: 150px;
+        margin-top: 5px;
+      }
+
     }
 
     .details {
-      margin-top: 2rem;
+      .links {
+        a {
+          &:after {
+            content: ' | '; //TODO - make this non link
+          }
+
+          &:last-child:after {
+            content: '';
+          }
+        }
+      }
     }
   }
 }

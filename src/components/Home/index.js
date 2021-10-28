@@ -8,11 +8,11 @@ import './home.scss';
 
 function Home() {
   return (
-    <div className="home">
+    <body className="home">
       <Navbar />
       <Header />
       <BeerAnimation />
-    </div>
+    </body>
   );
 };
 
