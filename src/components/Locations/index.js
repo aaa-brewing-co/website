@@ -65,8 +65,9 @@ function Locations() {
                   <p>Tumeric kogi truffaut, ugh migas gluten-free flannel. Glossier enamel pin synth, tbh tattooed you probably haven't heard of them tumeric williamsburg.</p>
                   <br/>
                   <p>{locations.data.address}</p>
-                  <p>
-                    <a href={locations.data.website}>Website</a> | <a href={locations.data.googleMap}>Google Maps</a>
+                  <p className="links">
+                    {locations.data.website ? <a href={locations.data.website}>Website</a> : ''}
+                    {locations.data.googleMap ? <a href={locations.data.googleMap}>Google Maps</a> : ''}
                   </p>
                 </div>
 

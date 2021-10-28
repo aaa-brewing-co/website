@@ -39,7 +39,7 @@ html {
 
 .App-header {
   background-color: var(--main-body-color);
-  min-height: 84vh;
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,6 +50,21 @@ html {
 
 .App-link {
   color: #61dafb;
+}
+
+body {
+  min-height: 85vh;
+  z-index: 1;
+  margin-bottom: 20vh;
+  background: var(--main-body-color);
+}
+
+/* Main */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: initial;
 }
 
 /* Navigation */
@@ -83,12 +98,15 @@ nav > ul > li > a:hover {
   text-decoration: underline;
 }
 
-/* Main */
-.main {
-  min-height: 84vh;
+/* Footer */
+footer {
+  position:fixed;
+  bottom: 0;
+  left: calc(var(--site-border)/10 * -1);
+  z-index: -1;
+  height: 20vh;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: initial;
-  background: var(--main-body-color);
 }
