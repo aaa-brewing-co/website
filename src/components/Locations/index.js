@@ -75,8 +75,12 @@ function Locations() {
             ))}
         </div>
         <div className="legend">
-          <h2>Legend $$$</h2>
-          <table class="table">
+          <table className="table">
+            <thead>
+              <tr>
+                <th colSpan="2">LEGEND</th>
+              </tr>
+            </thead>
             <tbody>
               <tr>
                 <th>$</th>
