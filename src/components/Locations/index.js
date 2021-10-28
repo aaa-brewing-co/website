@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import Navbar from "../commons/Navbar";
+import untappd from "../../assets/untappd.png";
 import './style.scss';
 
 import { getAllLocations } from "../../api";
@@ -14,6 +15,27 @@ function Locations() {
       // console.log(res);
     })
   }, [])
+
+  function Price({price}) {
+    let value = price
+    let dollars = ""
+    for (var i = 0; i < value; i++) {
+      dollars += "$";
+    }
+    return (
+      dollars
+    );
+  };
+
+  function UntappdButton({href}) {
+    return (
+      <div className="untappd">
+        <a href={href}>
+          <img src={untappd} className="untappd-logo" alt="Untappd Logo" loading="lazy" />
+        </a>
+      </div>
+    );
+  };
 
   return (
     <div className="locations">
@@ -35,24 +57,40 @@ function Locations() {
                 <h2>{locations.data.name}</h2>
                 <div className="meta">
                   <div className="price">
-                    Price Range:
-                    {locations.data.price}
+                    {locations.data.price ? <Price price={locations.data.price} /> : ''}
                   </div>
-                  <div className="untappd">
-                    <a href={locations.data.untappd}>untappd</a>
-                  </div>
+                  {locations.data.untappd ? <UntappdButton href={locations.data.untappd} /> : ''}
                 </div>
                 <div className="details">
                   <p>Tumeric kogi truffaut, ugh migas gluten-free flannel. Glossier enamel pin synth, tbh tattooed you probably haven't heard of them tumeric williamsburg.</p>
                   <br/>
                   <p>{locations.data.address}</p>
                   <p>
-                    <a href={locations.data.website}>Website</a> | <a href={locations.data.googleMap}>Google Map</a>
+                    <a href={locations.data.website}>Website</a> | <a href={locations.data.googleMap}>Google Maps</a>
                   </p>
                 </div>
 
               </div>
             ))}
+        </div>
+        <div className="legend">
+          <h2>Legend $$$</h2>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th>$</th>
+                <td>$0 - $15</td>
+              </tr>
+              <tr>
+                <th>$$</th>
+                <td>$16 - $30</td>
+              </tr>
+              <tr>
+                <th>$$$</th>
+                <td>$31 - $50</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

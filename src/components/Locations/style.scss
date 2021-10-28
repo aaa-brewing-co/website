@@ -22,46 +22,50 @@ iframe {
   @media screen and (max-width: 767px) {
     padding: 0 1rem 5rem;
   }
-}
 
-.place {
-  position: relative;
-  padding: 1rem;
-  flex: 1 0 31%;
-  margin: 2vmin;
-  height: 250px;
-  color: var(--tertiary-color);
-
-  h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+  h1 {
+    color: var(--tertiary-color);
   }
 
-  .meta {
-    display: flex;
-    justify-content: space-between;
+  .place {
     position: relative;
-    overflow: hidden;
-    text-transform: uppercase;
-    letter-spacing: -.01em;
+    padding: 1rem;
+    flex: 1 0 31%;
+    margin: 2vmin;
+    color: var(--tertiary-color);
 
-    &:before {
-      position: absolute;
-      content: "";
-      display: block;
-      background-color: var(--tertiary-color);
-      height: 2px;
-      width: 100%;
-      top: 0;
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: -.01em;
+
+      &:before {
+        position: absolute;
+        content: "";
+        display: block;
+        background-color: var(--tertiary-color);
+        height: 2px;
+        width: 100%;
+        top: 0;
+      }
+
+      .untappd-logo {
+        width: 180px;
+      }
+    }
+
+    .details {
+      margin-top: 2rem;
     }
   }
-
-  .details {
-    margin-top: 2rem;
-  }
-
-  @media screen and (max-width: 767px) {
-    height: auto;
-  }
 }
+
