@@ -2,28 +2,34 @@ import React from "react";
 
 import Navbar from "../commons/Navbar";
 import BeerType from "../commons/beer-type";
-import cat from '../../assets/cat.jpg';
+import BeerStyles from "./BeerStyles";
 
-function About() {
+export default function About() {
   return (
     <div className="about">
       <Navbar />
-      <h1>Beer Styles</h1>
-      <BeerType />
-      <div className="main">
-        <h1>What is Craft Beer?</h1>
-        <p>blah blah blah</p>
+      <div className="section">
+        <BeerType />
+        <h2 className="title is-2">Most Common Beer Styles</h2>
+        <BeerStyles />
 
-        <h1>Beer Styles</h1>
-        <p>blah blah blah</p>
-
-        <h1>Beer Tasting Guide</h1>
-        <p>blah blah blah</p>
-
-        <img src={cat} alt="cat" loading="lazy" width="400" height="308"/>
+        <h2 className="title is-2">Tasting Guide</h2>
+        <ul>
+          <li>Aesthetics</li>
+          <ul>
+            <li>SRM</li>
+            <li>Carbonation</li>
+          </ul>
+          <li>Aromatics</li>
+          <li>Mouthfeel / Body</li>
+          <li>Flavour Components</li> {/* https://www.craftbeer.com/educational-resources/flavor-components-in-beer */}
+          <ul>
+            <li>Taste</li>
+            <li>Mid-taste</li>
+            <li>After-taste</li>
+          </ul>
+        </ul>
       </div>
     </div>
   );
-};
-
-export default About;
+}

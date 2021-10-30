@@ -1,0 +1,92 @@
+.map {
+  background-color: var(--tertiary-color);
+  width: 100%;
+  height: 70vh;
+}
+
+.header {
+  font-size: 7vmin;
+}
+
+iframe {
+  border: none;
+  width: 100%;
+  height: 70vh;
+}
+
+.places {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 5rem 5rem;
+
+  @media screen and (max-width: 767px) {
+    padding: 0 1rem 5rem;
+  }
+
+  h1 {
+    color: var(--tertiary-color);
+  }
+
+  .place {
+    position: relative;
+    padding: 1rem;
+    flex: 1 0 31%;
+    margin: 2vmin;
+    color: var(--tertiary-color);
+
+    @media screen and (max-width: 767px) {
+      height: auto;
+      flex: 1 0 100%;
+    }
+
+    h2 {
+      font-size: 2em;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: -.01em;
+
+      &:before {
+        position: absolute;
+        content: "";
+        display: block;
+        background-color: var(--tertiary-color);
+        height: 2px;
+        width: 100%;
+        top: 0;
+      }
+
+      .price {
+        font-size: 1.5em;
+      }
+
+      .untappd-logo {
+        width: 150px;
+        margin-top: 5px;
+      }
+
+    }
+
+    .details {
+      .links {
+        a {
+          &:after {
+            content: ' | '; //TODO - make this non link
+          }
+
+          &:last-child:after {
+            content: '';
+          }
+        }
+      }
+    }
+  }
+}
+

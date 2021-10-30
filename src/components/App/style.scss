@@ -20,10 +20,15 @@ html {
   background-color: var(--main-bg-color);
 }
 
+body {
+  min-height: 85vh;
+  z-index: 1;
+  margin-bottom: 20vh;
+  background: var(--main-body-color);
+}
 
 /* App Styles */
 .App {
-  text-align: center;
   padding: var(--site-border);
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
@@ -40,7 +45,7 @@ html {
 
 .App-header {
   background-color: var(--main-body-color);
-  min-height: 84vh;
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,13 +58,21 @@ html {
   color: #61dafb;
 }
 
+/* Main */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: initial;
+}
+
 /* Navigation */
 nav {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 1vh 0;
+  padding: 1rem 0;
   background: var(--nav-bg-color);
   text-transform: uppercase;
   font-size: 2.5vmin;
@@ -84,12 +97,15 @@ nav > ul > li > a:hover {
   text-decoration: underline;
 }
 
-/* Main */
-.main {
-  min-height: 84vh;
+/* Footer */
+footer {
+  position:fixed;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  height: 20vh;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: initial;
-  background: var(--main-body-color);
 }
