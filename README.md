@@ -2,6 +2,14 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/bce7483d-5d51-4b42-a084-c94fdbb13401/deploy-status)](https://app.netlify.com/sites/aaa-brewing-co/deploys)
 
+### <a title="Check it out" target="_blank" href="https://github.com/GoogleChrome/lighthouse"><img src="https://raw.githubusercontent.com/GoogleChrome/lighthouse/master/assets/lighthouse-logo.svg" width="25"/></a> Lighthouse Results
+
+| **Desktop**  | **Mobile** |
+| ------------- | ------------- |
+| <img src="./lighthouse_results/desktop/pagespeed.svg" /> | <img src="./lighthouse_results/mobile/pagespeed.svg" /> |
+
+> Created with the [Lighthouse-Badger](https://github.com/myactionway/lighthouse-badger-action "Get it") :badger: :tokyo_tower: :medal_military:
+
 ## Created with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
