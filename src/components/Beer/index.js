@@ -1,6 +1,7 @@
 import React from "react";
 
 import Navbar from "../commons/Navbar";
+import BeerType from "../commons/beer-type";
 import BeerStyles from "./BeerStyles";
 
 export default function About() {
@@ -8,7 +9,7 @@ export default function About() {
     <div className="about">
       <Navbar />
       <div className="section">
-
+        <BeerType />
         <h2 className="title is-2">Most Common Beer Styles</h2>
         <BeerStyles />
 

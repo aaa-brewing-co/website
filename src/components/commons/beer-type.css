@@ -1,0 +1,43 @@
+.wrapper {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.accordion {
+    width: 100%;
+    background-color: transparent;
+    margin: auto;
+}
+
+.item {
+    width: 48%;
+    display: inline-block;
+    background-color: #fff;
+    margin-bottom: 5px;
+    margin-right: 1%;
+    padding: 10px 20px;
+}
+
+.title {
+    color: #85652b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.paragraph {
+    color: #85652b;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0,1,0,1);
+}
+
+.paragraph.show {
+    height: auto;
+    max-height: 9999px;
+    transition: all 0.5s cubic-bezier(1,0,1,0);
+}
