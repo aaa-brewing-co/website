@@ -34,6 +34,14 @@ function Admin() {
     }
   }
 
+  function displayPrice(priceVal) {
+    let price = '';
+    for (let i = 0; i < priceVal; i++) {
+      price += '$';
+    }
+    return price;
+  }
+
   return (
     <div className="admin">
       <Navbar />
@@ -50,40 +58,55 @@ function Admin() {
 
         <h1 className="title is-3 my-3">Locations</h1>
 
-        <table className="table">
-          <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Address</th>
-            <th>Google Maps</th>
-            <th>Website</th>
-            <th>Untappd</th>
-            <th>Longitude</th>
-            <th>Latitude</th>
-            <th></th>
-            <th></th>
-          </tr>
-          {locations.map(locations => (
-              <tr>
-                <td>{locations.data.name}</td>
-                <td>{locations.data.price}</td>
-                <td>{locations.data.address}</td>
-                <td>{locations.data.googleMap}</td>
-                <td>{locations.data.website}</td>
-                <td>{locations.data.untappd}</td>
-                <td>{locations.data.lon}</td>
-                <td>{locations.data.lat}</td>
-                <td>
-                  <button data-value={locations.ref.id} type="button">✏️</button>
-                </td>
-                <td>
-                  <button
-                    onClick={(e) => handleDelete(e, locations.ref.id)}
-                    type="button">🗑️</button>
-                </td>
-              </tr>
-          ))}
-        </table>
+        {locations.map(locations => (
+          <div className="card" key={locations.ref.id}>
+            <div className="card-header">
+              <div className="card-header-title is-flex is-justify-content-space-between">
+                <h4 className="is-size-4">{locations.data.name}</h4>
+                <span className="tag">{displayPrice(locations.data.price)}</span>
+              </div>
+            </div>
+            <div className="card-content">
+              <div className="content">
+                <div className="is-flex is-justify-content-space-between is-flex-wrap-wrap">
+                  <div>
+                    <p>{locations.data.address}</p>
+                    <div className="buttons mb-1">
+                      {
+                        locations.data.googleMap &&
+                        <a className="button is-success" href={locations.data.googleMap}>Google Map</a>
+                      }
+                      {
+                        locations.data.website &&
+                        <a className="button is-link" href={locations.data.website}>Link</a>
+                      }
+                      {
+                        locations.data.untappd &&
+                        <a className="button is-info" href={locations.data.untappd}>Untappd</a>
+                      }
+                    </div>
+                  </div>
+                  <div>
+                    <div className="buttons">
+                      <button className="button is-warning is-outlined" data-value={locations.ref.id} type="button">✏️</button>
+                      <button className="button is-danger is-outlined"
+                        onClick={(e) => handleDelete(e, locations.ref.id)}
+                        type="button">🗑️</button>
+                    </div>
+                  </div>
+                </div>
+                {
+                  /*
+                    to use in map locations
+                    locations.data.lon
+                    locations.data.lat
+                   */
+                }
+              </div>
+            </div>
+          </div>
+        ))}
+
       </div>
     </div>
   );
