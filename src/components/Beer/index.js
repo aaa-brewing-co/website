@@ -1,17 +1,19 @@
 import React from "react";
 
+import './style.scss';
+
 import Navbar from "../commons/Navbar";
-import BeerType from "../commons/beer-type";
-import BeerStyles from "./BeerStyles";
+import BeerTypes from "./BeerTypes";
+// import BeerStyles from "./BeerStyles";
 
 export default function About() {
   return (
     <div className="about">
       <Navbar />
       <div className="section">
-        <BeerType />
         <h2 className="title is-2">Most Common Beer Styles</h2>
-        <BeerStyles />
+        {/* <BeerStyles /> */}
+        <BeerTypes />
 
         <h2 className="title is-2">Tasting Guide</h2>
         <ul>
