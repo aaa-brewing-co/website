@@ -14,8 +14,8 @@ function BeerType() {
   return (
     <div className="wrapper my-5">
         <div className="accordion">
-            {data.map((item,i) => (
-                <div className="item">
+            {data.map((item, i) => (
+                <div className="item" key={i}>
                     <div className="title" onClick={() => toggle(i)}>
                         <h2>{item.title}</h2>
                         <span>{selected === i ? '-' : '+'}</span>
