@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import './beer-type.css';
 
 function BeerType() {
 
@@ -13,7 +12,7 @@ function BeerType() {
   }
 
   return (
-    <div className="wrapper">
+    <div className="wrapper my-5">
         <div className="accordion">
             {data.map((item,i) => (
                 <div className="item">
@@ -29,10 +28,7 @@ function BeerType() {
   );
 };
 
-const paragraph = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet natus sint provident vel ab reprehenderit cum soluta, suscipit facere nisi sed earum repellendus fuga debitis, nam molestiae minima voluptates possimus.'
-
 const data = [
-
   {
     title: 'India Pale Ale (IPA)',
     paragraph: 'IPAs are usually a beer drinker’s first introduction to the world of craft beer. Encompassing of numerous styles of beer, IPAs get their characteristics largely from hops and herbal, citrus or fruity flavors.'
