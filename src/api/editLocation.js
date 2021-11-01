@@ -1,19 +1,10 @@
 import { client, q } from '../config/db'
 
-const editLocation = (refId, name, price, address, lon, lat) => client.query(
+const editLocation = (refId, data) => client.query(
   q.Update(
-    q.Ref(q.Collection('locations'), refId),
-    { data: {
-      name: name,
-      price: price,
-      address: address,
-      lon: lon,
-      lat: lat,
-    } },
-  )
-)
-.then((ret) => console.log(ret))
-.catch(err => console.warn(err))
-
+    q.Ref(q.Collection('locations'), refId), {
+      data: data
+    })
+);
 
 export default editLocation;

@@ -5,14 +5,30 @@ import './style.scss';
 
 import CreateForm from "./CreateForm";
 import { getAllLocations, deleteLocation } from "../../api";
+import EditForm from "./EditForm";
 
 function Admin() {
   const [locations, setLocations] = useState([]);
   const [isActive, setActive] = useState(false);
+  const [editItem, setEdit] = useState(null);
 
   const toggleClass = () => {
     setActive(!isActive);
   };
+
+  const toggleEdit = (location) => {
+    setEdit(location || null);
+  };
+
+  const doneEdit = (res) => {
+    locations.forEach(note => {
+      if (note.ref.id === res.ref.id) {
+        note.data = res.data
+      }
+    });
+    setLocations(locations);
+    toggleEdit();
+  }
 
   useEffect(() => {
     updateLoactions();
@@ -21,7 +37,6 @@ function Admin() {
   function updateLoactions() {
     getAllLocations.then(res => {
       setLocations(res);
-      // console.log(res);
     });
   }
 
@@ -99,7 +114,9 @@ function Admin() {
                   </div>
                   <div>
                     <div className="buttons">
-                      <button className="button is-warning is-outlined" data-value={locations.ref.id} type="button">✏️</button>
+                      <button className="button is-warning is-outlined"
+                        onClick={() => toggleEdit(locations)}
+                        data-value={locations.ref.id} type="button">✏️</button>
                       <button className="button is-danger is-outlined"
                         onClick={(e) => handleDelete(e, locations.ref.id)}
                         type="button">🗑️</button>
@@ -117,6 +134,15 @@ function Admin() {
             </div>
           </div>
         ))}
+
+        <div className={editItem ? 'modal is-active' : 'modal'}>
+          <div className="modal-background"></div>
+          <div className="modal-content has-background-white p-6">
+            <EditForm location={editItem} onLocationUpdated={(res) => doneEdit(res)} />
+          </div>
+          <button className="modal-close is-large"
+            onClick={() => toggleEdit()} aria-label="close"></button>
+        </div>
 
       </div>
     </div>
