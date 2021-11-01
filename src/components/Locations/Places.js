@@ -16,8 +16,8 @@ export default function Places() {
   }, [])
 
   return (
-    <div>
-      <div className="columns mx-4 is-centered">
+    <>
+      <div className="is-flex mx-4 is-centered">
         <SearchBar
           filterText={filterText}
           onFilterTextChange={setFilterText} />
@@ -30,19 +30,17 @@ export default function Places() {
           locations={locations}
           filterText={filterText} />
       </div>
-    </div>
+    </>
   )
 }
 
 function SearchBar({ filterText, onFilterTextChange }) {
   return (
-    <form>
-      <input
-        className="input"
-        type="text"
-        value={filterText} placeholder="Search..."
-        onChange={(e) => onFilterTextChange(e.target.value)} />
-    </form>
+    <input
+      className="input"
+      type="text"
+      value={filterText} placeholder="Search..."
+      onChange={(e) => onFilterTextChange(e.target.value)} />
   )
 }
 
@@ -58,8 +56,8 @@ function FilterDropdown({ filterOptions }) {
   })
 
   return (
-    <select className="button">
-      <option value="" disabled defaultValue>Filter</option>
+    <select className="dropdown">
+      <option value="" defaultValue>Filter</option>
       { options }
     </select>
   )
@@ -95,7 +93,7 @@ function Locations({ locations, filterText }) {
   })
 
   return (
-    rows
+    !rows.length ? <h1 className="mx-auto my-6">No spots found.</h1> : rows
   )
 }
 

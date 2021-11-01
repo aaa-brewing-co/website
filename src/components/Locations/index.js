@@ -2,6 +2,8 @@ import React from "react";
 
 import Navbar from "../commons/Navbar";
 import Places from "./Places";
+import Legend from "./Legend";
+
 import './style.scss';
 
 export default function Locations() {
@@ -19,29 +21,7 @@ export default function Locations() {
         <h1 className="title my-6">Beer Spots</h1>
         <Places />
 
-        <div className="legend">
-          <table className="table">
-            <thead>
-              <tr>
-                <th colSpan="2">LEGEND</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>$</th>
-                <td>$0 - $15</td>
-              </tr>
-              <tr>
-                <th>$$</th>
-                <td>$16 - $30</td>
-              </tr>
-              <tr>
-                <th>$$$</th>
-                <td>$31 - $50</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <Legend />
       </div>
     </div>
   );
