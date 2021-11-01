@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 
 import { createLocation  } from "../../api";
 
-function CreateForm() {
+function CreateForm(props) {
   const name = useRef('')
   const price = useRef('')
   const address = useRef('')
@@ -17,8 +17,22 @@ function CreateForm() {
     if (!name.current.value || !price.current.value || !address.current.value || !googleMap.current.value || !website.current.value || !untappd.current.value || !lon.current.value || !lat.current.value) {
       alert('You need fill up all the fields')
     } else {
-      await createLocation(name.current.value,price.current.value,address.current.value,googleMap.current.value,website.current.value,untappd.current.value,lon.current.value,lat.current.value)
-      alert('Created location')
+      const data = {
+        name: name.current.value,
+        price: price.current.value,
+        address: address.current.value,
+        googleMap: googleMap.current.value,
+        website: website.current.value,
+        untappd: untappd.current.value,
+        lon: lon.current.value,
+        lat: lat.current.value
+      };
+      createLocation(data)
+      .then(res => {
+        props.onLocationCreated(res);
+        alert('Created location')
+      })
+      .catch(error => console.error('Error: ', error.message));
     }
   }
 

@@ -1,22 +1,11 @@
 import { client, q } from '../config/db.js'
 
-const createLocation = (name, price, address, googleMap, website, untappd, lon, lat) =>
+const createLocation = (data) =>
   client
     .query(
       q.Create(q.Collection('locations'), {
-        data: {
-          name,
-          price,
-          address,
-          googleMap,
-          website,
-          untappd,
-          lon,
-          lat,
-        }
+        data: data
       })
-    )
-    .then(ret => ret)
-    .catch(error => console.error('Error: ', error.message));
+    );
 
 export default createLocation;
