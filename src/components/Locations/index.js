@@ -1,42 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import Navbar from "../commons/Navbar";
-import untappd from "../../assets/untappd.png";
+import Places from "./Places";
 import './style.scss';
 
-import { getAllLocations } from "../../api";
-
-function Locations() {
-  const [locations, setLocations] = useState([])
-
-  useEffect(() => {
-    getAllLocations.then(res => {
-      setLocations(res);
-      // console.log(res);
-    })
-  }, [])
-
-  function Price({price}) {
-    let value = price
-    let dollars = ""
-    for (var i = 0; i < value; i++) {
-      dollars += "$";
-    }
-    return (
-      dollars
-    );
-  };
-
-  function UntappdButton({href}) {
-    return (
-      <div className="untappd">
-        <a href={href}>
-          <img src={untappd} className="untappd-logo" alt="Untappd Logo" loading="lazy" />
-        </a>
-      </div>
-    );
-  };
-
+export default function Locations() {
   return (
     <div className="locations">
       <Navbar />
@@ -49,31 +17,8 @@ function Locations() {
         </div>
 
         <h1 className="title my-6">Beer Spots</h1>
-        <div className="places">
-          {/* TODO - LIMIT TO 6 + SHOW MORE */}
-          {locations &&
-            locations.map(locations => (
-              <div className="place" key={locations.ref.id}>
-                <h2>{locations.data.name}</h2>
-                <div className="meta">
-                  <div className="price">
-                    {locations.data.price ? <Price price={locations.data.price} /> : ''}
-                  </div>
-                  {locations.data.untappd ? <UntappdButton href={locations.data.untappd} /> : ''}
-                </div>
-                <div className="details">
-                  <p>Tumeric kogi truffaut, ugh migas gluten-free flannel. Glossier enamel pin synth, tbh tattooed you probably haven't heard of them tumeric williamsburg.</p>
-                  <br/>
-                  <p>{locations.data.address}</p>
-                  <p className="links">
-                    {locations.data.website ? <a href={locations.data.website}>Website</a> : ''}
-                    {locations.data.googleMap ? <a href={locations.data.googleMap}>Google Maps</a> : ''}
-                  </p>
-                </div>
+        <Places />
 
-              </div>
-            ))}
-        </div>
         <div className="legend">
           <table className="table">
             <thead>
@@ -101,5 +46,3 @@ function Locations() {
     </div>
   );
 };
-
-export default Locations;
