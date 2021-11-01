@@ -1,7 +1,10 @@
 .map {
   background-color: var(--tertiary-color);
-  width: 100%;
-  height: 70vh;
+}
+
+.leaflet-container {
+  height: 80vh;
+  width: 96.5vw;
 }
 
 .header {
