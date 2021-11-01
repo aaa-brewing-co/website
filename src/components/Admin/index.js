@@ -15,11 +15,22 @@ function Admin() {
   };
 
   useEffect(() => {
+    updateLoactions();
+  }, []);
+
+  function updateLoactions() {
     getAllLocations.then(res => {
       setLocations(res);
       // console.log(res);
     });
-  }, []);
+  }
+
+  function handleCreate(res) {
+    if (res) {
+      locations.push(res);
+    }
+    toggleClass();
+  }
 
   function handleDelete(e, id) {
     e.preventDefault();
@@ -51,7 +62,7 @@ function Admin() {
         <div className={isActive ? 'modal is-active' : 'modal'}>
           <div className="modal-background"></div>
           <div className="modal-content has-background-white p-6">
-            <CreateForm/>
+            <CreateForm onLocationCreated={handleCreate} />
           </div>
           <button className="modal-close is-large" onClick={toggleClass} aria-label="close"></button>
         </div>
