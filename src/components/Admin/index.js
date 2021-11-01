@@ -14,10 +14,20 @@ function Admin() {
 
   const toggleClass = () => {
     setActive(!isActive);
+    toggleModal(!isActive);
   };
+
+  function toggleModal(show) {
+    if (show) {
+      document.documentElement.classList.add('is-clipped');
+    } else {
+      document.documentElement.classList.remove('is-clipped');
+    }
+  }
 
   const toggleEdit = (location) => {
     setEdit(location || null);
+    toggleModal(location);
   };
 
   const doneEdit = (res) => {
