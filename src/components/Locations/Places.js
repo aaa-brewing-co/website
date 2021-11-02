@@ -84,8 +84,8 @@ function Locations({ locations, filterText }) {
           <br/>
           <p>{location.data.address}</p>
           <p className="links">
-            {location.data.website ? <a href={location.data.website}>Website</a> : ''}
-            {location.data.googleMap ? <a href={location.data.googleMap}>Google Maps</a> : ''}
+            {location.data.website ? <a href={location.data.website} target="_blank" rel="noreferrer noopener">Website</a> : ''}
+            {location.data.googleMap ? <a href={location.data.googleMap} target="_blank" rel="noreferrer noopener">Google Maps</a> : ''}
           </p>
         </div>
       </div>
@@ -111,7 +111,7 @@ function Price({price}) {
 function UntappdButton({href}) {
   return (
     <div className="untappd">
-      <a href={href}>
+      <a href={href} target="_blank" rel="noreferrer noopener">
         <img src={untappd} className="untappd-logo" alt="Untappd Logo" loading="lazy" />
       </a>
     </div>

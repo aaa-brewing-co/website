@@ -2,9 +2,13 @@
   background-color: var(--tertiary-color);
 }
 
-.leaflet-container {
-  height: 80vh;
-  width: 96.5vw;
+#map {
+  height: 70vh;
+  width: 90vw;
+
+  @media screen and (max-width: 767px) {
+    width: calc(100vw - var(--site-border)*2);
+  }
 }
 
 .header {
