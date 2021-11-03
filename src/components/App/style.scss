@@ -2,10 +2,15 @@
 :root {
   --site-border: 25px;
 
-  --main-color: #ffa500;
-  --secondary-color: #111;
-  --tertiary-color: #fff3dd;
-  /* --quaternary-color: ; */
+  --ipa: #ffb241;
+  --lager: #bf4208;
+  --porter: #482020;
+  --stout: #291717;
+
+  --main-color: var(--lager);
+  --secondary-color: var(--ipa);
+  --tertiary-color: var(--stout);
+  --quaternary-color: var(--porter);
 
   --main-bg-color: var(--main-color);
   --main-body-color: var(--secondary-color);
@@ -116,7 +121,7 @@ nav > ul > li > a:hover {
 
 /* General Styles */
 .heading {
-  font-size: 2.85em;
+  font-size: 2.65em;
   font-weight: bold;
   letter-spacing: -3px;
   text-transform: none;
