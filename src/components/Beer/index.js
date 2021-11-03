@@ -3,19 +3,24 @@ import React from "react";
 import './style.scss';
 
 import Navbar from "../commons/Navbar";
-import BeerTypes from "./BeerTypes";
-// import BeerStyles from "./BeerStyles";
+import DropdownFilter from "../commons/DropdownFilter";
+// import BeerTypes from "./BeerTypes";
+import BeerStyles from "./BeerStyles";
 
-export default function About() {
+const filterOptions = [ "Price", "Untappd" ]
+
+export default function Beer() {
   return (
-    <div className="about">
+    <div className="beer">
       <Navbar />
-      <div className="section">
-        <h2 className="title is-2">Most Common Beer Styles</h2>
-        {/* <BeerStyles /> */}
-        <BeerTypes />
+      <div className="section main">
+        <h2 className="heading is-2">Most Common Beer Styles</h2>
+        <DropdownFilter data={filterOptions} useDefault={false} />
 
-        <h2 className="title is-2">Tasting Guide</h2>
+        <BeerStyles />
+        {/* <BeerTypes /> */}
+
+        <h2 className="heading is-2">Tasting Guide</h2>
         <ul>
           <li>Aesthetics</li>
           <ul>

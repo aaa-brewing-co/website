@@ -37,37 +37,24 @@ const styles = [ // https://time.com/5218581/types-of-beer-guide/
 
 export default function BeerStyles() {
   return (
-    <div>
-      <section className="section cards">
-        <div className="columns is-multiline is-centered">
-          <Cards data={styles}/>
-        </div>
-      </section>
+    <>
+      {/* TODO - make this scrollable to the right */}
+      <div className="container">
+        {styles.map( (item, i) => (
+          <div className="card" key={i}>
+            <div className="content">
+              <h2>{i+1}</h2>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
       {/*
         Reference:
         - https://www.brewersassociation.org/resource-hub/beer-styles/
         - https://www.beeradvocate.com/beer/styles/
       */}
-    </div>
+    </>
   );
-}
-
-function Cards({data}) {
-  const list = data.map(function(item, index) {
-    return (
-      <div className="column is-one-fifth card m-2" key={index}>
-        <header className="card-header">
-          <p className="card-header-title">
-            {item.title}
-          </p>
-        </header>
-        <div className="card-content">
-          <div className="content">
-            {item.description}
-          </div>
-        </div>
-      </div>
-    );
-  });
-  return list;
 }

@@ -41,7 +41,6 @@ iframe {
     flex: 1 0 31%;
     max-width: 32%;
     margin: 2vmin;
-    color: var(--tertiary-color);
 
     @media screen and (max-width: 767px) {
       height: auto;
@@ -67,7 +66,7 @@ iframe {
         position: absolute;
         content: "";
         display: block;
-        background-color: var(--tertiary-color);
+        background-color: var(--main-color);
         height: 2px;
         width: 100%;
         top: 0;
