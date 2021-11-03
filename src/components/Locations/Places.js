@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react"
 
 import untappd from "../../assets/untappd.png"
+import DropdownFilter from "../commons/DropdownFilter";
 
 import { getAllLocations } from "../../api"
+
+const filterOptions = [ "Price", "Untappd" ]
 
 export default function Places() {
   const [locations, setLocations] = useState([])
@@ -21,8 +24,7 @@ export default function Places() {
         <SearchBar
           filterText={filterText}
           onFilterTextChange={setFilterText} />
-        <FilterDropdown
-          filterOptions={filterOptions} />
+        <DropdownFilter data={filterOptions} useDefault={true} />
       </div>
       <div className="places">
         {/* TODO - LIMIT TO 6 + SHOW MORE */}
@@ -30,6 +32,9 @@ export default function Places() {
           locations={locations}
           filterText={filterText} />
       </div>
+
+      {/* NEW | NEARBY | RANDOM */}
+      {/* NORTH | CENTRAL | SOUTH | EAST | WEST */}
     </>
   )
 }
@@ -41,25 +46,6 @@ function SearchBar({ filterText, onFilterTextChange }) {
       type="text"
       value={filterText} placeholder="Search..."
       onChange={(e) => onFilterTextChange(e.target.value)} />
-  )
-}
-
-const filterOptions = [ "Price", "Untappd" ]
-
-function FilterDropdown({ filterOptions }) {
-  const options = []
-
-  filterOptions.forEach((option, i) => {
-    options.push(
-      <option key={i} value={option.toLocaleLowerCase()}>{option}</option>
-    )
-  })
-
-  return (
-    <select className="dropdown">
-      <option value="" defaultValue>Filter</option>
-      { options }
-    </select>
   )
 }
 

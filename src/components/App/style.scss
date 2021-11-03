@@ -2,9 +2,9 @@
 :root {
   --site-border: 25px;
 
-  --main-color: #f0ae2c;
-  --secondary-color: #fff7f1;
-  --tertiary-color: #005b55;
+  --main-color: #ffa500;
+  --secondary-color: #111;
+  --tertiary-color: #fff3dd;
   /* --quaternary-color: ; */
 
   --main-bg-color: var(--main-color);
@@ -45,13 +45,30 @@ body {
 
 .App-header {
   background-color: var(--main-body-color);
-  min-height: 85vh;
+  min-height: 87.5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: var(--main-text-color);
+
+  @media screen and (max-width: 767px) {
+    min-height: 85vh;
+  }
+
+  .wrap {
+    max-width: 60%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1000;
+    padding: 0 4rem;
+
+    @media screen and (max-width: 767px) {
+      max-width: 100%;
+      padding: 0 2rem;
+    }
+  }
 }
 
 .App-link {
@@ -63,7 +80,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: initial;
+  justify-content: center;
 }
 
 /* Navigation */
@@ -93,8 +110,27 @@ nav > ul > li > a {
   text-decoration: none;
 }
 nav > ul > li > a:hover {
-  /* color: var(--nav-linkhover-color); */
-  text-decoration: underline;
+  color: var(--nav-linkhover-color);
+  text-decoration: none;
+}
+
+/* General Styles */
+.heading {
+  font-size: 2.85em;
+  font-weight: bold;
+  letter-spacing: -3px;
+  text-transform: none;
+  text-align: center;
+
+  @media screen and (max-width: 767px) {
+    font-size: 2em;
+    // line-height: 1.15em;
+  }
+}
+.subheading {
+  white-space: pre-line;
+  margin: 1rem 0 1.5em;
+  font-size: 0.85em;
 }
 
 /* Footer */
