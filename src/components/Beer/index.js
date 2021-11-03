@@ -7,7 +7,7 @@ import DropdownFilter from "../commons/DropdownFilter";
 // import BeerTypes from "./BeerTypes";
 import BeerStyles from "./BeerStyles";
 
-const filterOptions = [ "Price", "Untappd" ]
+const filterOptions = [ "India Pale Ale", "Stout", "Pale Ale", "Sours", "Porter", "Pilsner", "Belgian", "Wheat" ]
 
 export default function Beer() {
   return (

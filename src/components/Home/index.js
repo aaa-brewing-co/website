@@ -3,6 +3,7 @@ import React from "react";
 import Header from "../commons/Header";
 // import BeerAnimation from "../commons/beer-animation";
 import Navbar from "../commons/Navbar";
+import Bubbles from "../commons/Bubbles";
 
 import './home.scss';
 
@@ -17,6 +18,7 @@ function Home() {
       />
 
       {/* <BeerAnimation /> */}
+      <Bubbles />
     </div>
   );
 };
