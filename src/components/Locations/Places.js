@@ -1,22 +1,12 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 
 import untappd from "../../assets/untappd.png"
 import DropdownFilter from "../commons/DropdownFilter";
 
-import { getAllLocations } from "../../api"
-
 const filterOptions = [ "Price", "Untappd" ]
 
-export default function Places() {
-  const [locations, setLocations] = useState([])
+export default function Places({ locations }) {
   const [filterText, setFilterText] = useState('')
-
-  useEffect(() => {
-    getAllLocations.then(res => {
-      setLocations(res);
-      // console.log(res);
-    })
-  }, [])
 
   return (
     <>
