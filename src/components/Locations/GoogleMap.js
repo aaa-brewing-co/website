@@ -1,13 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
-export default function MapWrapper() {
+export default function MapWrapper({locations}) {
   const center = { lat: 1.3654, lng: 103.8436 };
   const zoom = 12;
-  const locations = [
-    { lat: 1.2838, lng: 103.8485 },
-    { lat: 1.3654, lng: 103.8436 }
-  ];
 
   const render = function (status) {
     if (status === Status.LOADING) return <h3>{status} ..</h3>;
@@ -30,12 +26,22 @@ function Map({ center, zoom, locations }) {
       center,
       zoom
     });
+    let markerPosition;
     locations.forEach(location => {
-      new window.google.maps.Marker({
-        position: location,
-        map: map,
-      });
+      if (location.data.lat && location.data.lon) {
+        markerPosition = {
+          lat: Number(location.data.lat),
+          lng: Number(location.data.lon)
+        };
+
+        new window.google.maps.Marker({
+          position: markerPosition,
+          map: map,
+        });
+      }
     });
+    // update center to last location
+    map.setCenter(markerPosition);
   }, [ref, locations, center, zoom]);
 
   return (

@@ -136,15 +136,15 @@ function EditForm(props) {
         </div>
       </div>
       <div className="field">
-        <label className="label">Longitude</label>
-        <div className="control">
-          <input className="input" value={lon} onChange={updateLon} type="text" name="lon" placeholder="Longitude"  required/>
-        </div>
-      </div>
-      <div className="field">
         <label className="label">Latitude</label>
         <div className="control">
           <input className="input" value={lat} onChange={updateLat} type="text" name="lat" placeholder="Latitude"  required/>
+        </div>
+      </div>
+      <div className="field">
+        <label className="label">Longitude</label>
+        <div className="control">
+          <input className="input" value={lon} onChange={updateLon} type="text" name="lon" placeholder="Longitude"  required/>
         </div>
       </div>
       <div className="field">
