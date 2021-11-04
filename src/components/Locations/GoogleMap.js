@@ -4,6 +4,10 @@ import { Wrapper, Status } from "@googlemaps/react-wrapper";
 export default function MapWrapper() {
   const center = { lat: 1.3654, lng: 103.8436 };
   const zoom = 12;
+  const locations = [
+    { lat: 1.2838, lng: 103.8485 },
+    { lat: 1.3654, lng: 103.8436 }
+  ];
 
   const render = function (status) {
     if (status === Status.LOADING) return <h3>{status} ..</h3>;
@@ -13,17 +17,13 @@ export default function MapWrapper() {
 
   return (
     <Wrapper apiKey={process.env.REACT_APP_GMAPS_API_KEY} render={render}>
-      <Map center={center} zoom={zoom} />
+      <Map center={center} zoom={zoom} locations={locations} />
     </Wrapper>
   );
 }
 
-function Map({ center, zoom, children }) {
+function Map({ center, zoom, locations }) {
   const ref = useRef();
-  const locations = [
-    { lat: 1.2838, lng: 103.8485 },
-    { lat: 1.3654, lng: 103.8436 }
-  ];
 
   useEffect(() => {
     const map = new window.google.maps.Map(ref.current, {
