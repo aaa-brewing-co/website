@@ -1,21 +1,53 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react"
 
 import untappd from "../../assets/untappd.png"
-import DropdownFilter from "../commons/DropdownFilter";
+// import DropdownFilter from "../commons/DropdownFilter";
 
-const filterOptions = [ "Price", "Untappd" ]
+import HopIcon from "../../assets/icons/hop.png";
+import BeerIcon from "../../assets/icons/beer.png";
+import BreweryIcon from "../../assets/icons/brewery.png";
+
+// const filterOptions = [ "Price", "Untappd" ]
 
 export default function Places({ locations }) {
   const [filterText, setFilterText] = useState('')
 
   return (
     <>
-      <div className="is-flex mx-4 is-centered">
+      <RegionTabs />
+      <div className="is-flex-tablet mx-4 is-centered">
         <SearchBar
           filterText={filterText}
           onFilterTextChange={setFilterText} />
-        <DropdownFilter data={filterOptions} useDefault={true} />
+          <div className="type-selection">
+            <label class="checkbox">
+              <img src={HopIcon} alt="Hop Icon" />
+              <input type="checkbox" id="craft"
+                // checked={this.state.checked}
+                // onChange={this.onChange}
+              />
+            </label>
+
+            <label class="checkbox">
+              <img src={BeerIcon} alt="Beer Icon" />
+              <input type="checkbox" id="beer"
+                // checked={this.state.checked}
+                // onChange={this.onChange}
+              />
+            </label>
+
+            <label class="checkbox">
+              <img src={BreweryIcon} alt="Brewery Icon" />
+              <input type="checkbox" id="brewery"
+                // checked={this.state.checked}
+                // onChange={this.onChange}
+              />
+            </label>
+          </div>
+        {/* <DropdownFilter data={filterOptions} useDefault={true} /> */}
       </div>
+
       <div className="places">
         {/* TODO - LIMIT TO 6 + SHOW MORE */}
         <Locations
@@ -23,8 +55,6 @@ export default function Places({ locations }) {
           filterText={filterText} />
       </div>
 
-      {/* NEW | NEARBY | RANDOM */}
-      {/* NORTH | CENTRAL | SOUTH | EAST | WEST */}
     </>
   )
 }
@@ -39,6 +69,28 @@ function SearchBar({ filterText, onFilterTextChange }) {
   )
 }
 
+function RegionTabs() {
+  const regions = ["NORTH", "CENTRAL", "SOUTH", "EAST", "WEST"];
+  return (
+    <div className="tabs is-toggle">
+      <ul>
+        <li className="is-active">
+          <a href="#">
+            <span>ALL</span>
+          </a>
+        </li>
+        {regions.map( (region, i) => (
+        <li key={i}>
+          <a href="#">
+            <span>{region}</span>
+          </a>
+        </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
 function Locations({ locations, filterText }) {
   const rows = []
 
@@ -46,6 +98,7 @@ function Locations({ locations, filterText }) {
     if (location.data.name.toLocaleLowerCase().indexOf(filterText.toLocaleLowerCase()) === -1) {
       return
     }
+    const directionsLink = "https://www.google.com/maps/dir//"+location.data.name
     rows.push(
       <div className="place" key={location.ref.id}>
         <h2>{location.data.name}</h2>
@@ -62,6 +115,7 @@ function Locations({ locations, filterText }) {
           <p className="links">
             {location.data.website ? <a href={location.data.website} target="_blank" rel="noreferrer noopener">Website</a> : ''}
             {location.data.googleMap ? <a href={location.data.googleMap} target="_blank" rel="noreferrer noopener">Google Maps</a> : ''}
+            <a href={directionsLink} target="_blank" rel="noreferrer noopener">Directions</a>
           </p>
         </div>
       </div>
