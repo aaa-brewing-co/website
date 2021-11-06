@@ -5,6 +5,7 @@ import { editLocation  } from "../../api";
 function EditForm(props) {
   const _refId = props.location ? props.location.ref.id : '';
   const _name = props.location ? props.location.data.name : '';
+  const _type = props.location ? props.location.data.type : '';
   const _price = props.location ? props.location.data.price : '';
   const _address = props.location ? props.location.data.address : '';
   const _googleMap = props.location ? props.location.data.googleMap : '';
@@ -15,6 +16,7 @@ function EditForm(props) {
 
   const [id, setId] = useState(_refId);
   const [name, setName] = useState(_name);
+  const [type, setType] = useState(_type);
   const [price, setPrice] = useState(_price);
   const [address, setAddress] = useState(_address);
   const [googleMap, setGoogleMap] = useState(_googleMap);
@@ -26,6 +28,7 @@ function EditForm(props) {
   useEffect(() => {
     setId(_refId);
     setName(_name);
+    setType(_type);
     setPrice(_price);
     setAddress(_address);
     setGoogleMap(_googleMap);
@@ -36,6 +39,7 @@ function EditForm(props) {
   }, [
     _refId,
     _name,
+    _type,
     _price,
     _address,
     _googleMap,
@@ -49,6 +53,7 @@ function EditForm(props) {
     e.preventDefault();
     const data = {
       name: name,
+      type: type,
       price: price,
       address: address,
       googleMap: googleMap,
@@ -67,6 +72,10 @@ function EditForm(props) {
 
   function updateName(e) {
     setName(e.target.value);
+  }
+
+  function updateType(e) {
+    setType(e.target.value);
   }
 
   function updatePrice(e) {
@@ -103,6 +112,16 @@ function EditForm(props) {
         <label className="label">Name</label>
         <div className="control">
           <input className="input" value={name} onChange={updateName} type="text" name="name" placeholder="Name" required/>
+        </div>
+      </div>
+      <div className="field">
+        <label className="label">Type</label>
+        <div className="control select">
+          <select name="type" onChange={updateType}>
+            <option value="beer">Beer Towers</option>
+            <option value="craft">Craft Beer</option>
+            <option value="brewery">Brewery</option>
+          </select>
         </div>
       </div>
       <div className="field">

@@ -94,8 +94,9 @@ function Admin() {
 
         <h1 className="title is-3 my-3">Locations</h1>
 
+        <div className="is-flex flex-wrap is-justify-content-center">
         {locations.map(locations => (
-          <div className="card" key={locations.ref.id}>
+          <div className="card column is-one-quarter" key={locations.ref.id}>
             <div className="card-header">
               <div className="card-header-title is-flex is-justify-content-space-between">
                 <h4 className="is-size-4">{locations.data.name}</h4>
@@ -114,7 +115,7 @@ function Admin() {
                       }
                       {
                         locations.data.website &&
-                        <a className="button is-link" href={locations.data.website}>Link</a>
+                        <a className="button is-link" href={locations.data.website}>Website</a>
                       }
                       {
                         locations.data.untappd &&
@@ -144,6 +145,7 @@ function Admin() {
             </div>
           </div>
         ))}
+        </div>
 
         <div className={editItem ? 'modal is-active' : 'modal'}>
           <div className="modal-background"></div>
