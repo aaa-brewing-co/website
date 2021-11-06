@@ -4,6 +4,7 @@ import { createLocation  } from "../../api";
 
 function CreateForm(props) {
   const name = useRef('')
+  const type = useRef('')
   const price = useRef('')
   const address = useRef('')
   const googleMap = useRef('')
@@ -14,11 +15,12 @@ function CreateForm(props) {
 
   const handleCreate = async (e) => {
     e.preventDefault()
-    if (!name.current.value || !price.current.value || !address.current.value || !googleMap.current.value || !website.current.value || !untappd.current.value || !lon.current.value || !lat.current.value) {
+    if (!name.current.value || !type.current.value || !price.current.value || !address.current.value || !googleMap.current.value || !website.current.value || !untappd.current.value || !lon.current.value || !lat.current.value) {
       alert('You need fill up all the fields')
     } else {
       const data = {
         name: name.current.value,
+        type: type.current.value,
         price: price.current.value,
         address: address.current.value,
         googleMap: googleMap.current.value,
@@ -42,6 +44,16 @@ function CreateForm(props) {
         <label className="label">Name</label>
         <div className="control">
           <input className="input" ref={name} type="text" name="name" placeholder="Name" required/>
+        </div>
+      </div>
+      <div className="field">
+        <label className="label">Type</label>
+        <div className="control select">
+          <select name="type" ref={type}>
+            <option value="beer">Beer Towers</option>
+            <option value="craft">Craft Beer</option>
+            <option value="brewery">Brewery</option>
+          </select>
         </div>
       </div>
       <div className="field">
