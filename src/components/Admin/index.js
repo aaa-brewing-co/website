@@ -94,7 +94,7 @@ function Admin() {
 
         <h1 className="title is-3 my-3">Locations</h1>
 
-        <div className="is-flex flex-wrap is-justify-content-center">
+        <div className="is-flex is-flex-wrap-wrap is-justify-content-center">
         {locations.map(locations => (
           <div className="card column is-one-quarter" key={locations.ref.id}>
             <div className="card-header">

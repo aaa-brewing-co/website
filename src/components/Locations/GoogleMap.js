@@ -31,6 +31,7 @@ function Map({ center, zoom, locations }) {
       zoom
     });
     let markerPosition, icon;
+    const infoWindow = new window.google.maps.InfoWindow();
     locations.forEach(location => {
       if (location.data.lat && location.data.lon && location.data.type) {
         markerPosition = {
@@ -57,10 +58,15 @@ function Map({ center, zoom, locations }) {
           map: map,
         });
 
-        const infoWindow = new window.google.maps.InfoWindow();
+        const infoContent =
+        '<h1 class="heading">'+marker.getTitle()+'</h1>' +
+        '<p>'+location.data.address+'</p>' +
+        '<a href="'+location.data.googleMap+'">View on Google Maps</a>'
+
         marker.addListener("click", () => {
           infoWindow.close();
-          infoWindow.setContent(marker.getTitle());
+          infoWindow.setContent(infoContent);
+          infoWindow.setOptions({maxWidth:300});
           infoWindow.open(marker.getMap(), marker);
         });
       }
