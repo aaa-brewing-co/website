@@ -6,7 +6,7 @@ import BeerIcon from "../../assets/icons/beer.png";
 import BreweryIcon from "../../assets/icons/brewery.png";
 
 export default function MapWrapper({locations}) {
-  const center = { lat: 1.3654, lng: 103.8436 };
+  const center = { lat: 1.3605, lng: 103.7936 };
   const zoom = 12;
 
   const render = function (status) {
@@ -58,10 +58,26 @@ function Map({ center, zoom, locations }) {
           map: map,
         });
 
+        // user's marker - TODO get current position
+        new window.google.maps.Marker({
+          title: "Current Location",
+          position: center,
+          icon: {
+            path: window.google.maps.SymbolPath.CIRCLE,
+            scale: 8.5,
+            fillColor: "#4285f4",
+            fillOpacity: 0.4,
+            strokeWeight: 0.4,
+            strokeColor:'white'
+          },
+          animation: window.google.maps.Animation.DROP,
+          map: map,
+        });
+
         const infoContent =
         '<h1 class="heading">'+marker.getTitle()+'</h1>' +
         '<p>'+location.data.address+'</p>' +
-        '<a href="'+location.data.googleMap+'">View on Google Maps</a>'
+        '<a target="_blank" href="'+location.data.googleMap+'">View on Google Maps</a>'
 
         marker.addListener("click", () => {
           infoWindow.close();
@@ -72,7 +88,7 @@ function Map({ center, zoom, locations }) {
       }
     });
     // update center to last location
-    map.setCenter(markerPosition);
+    // map.setCenter(markerPosition);
   }, [ref, locations, center, zoom]);
 
   return (

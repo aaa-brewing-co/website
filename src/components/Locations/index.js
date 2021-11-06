@@ -31,7 +31,7 @@ export default function Locations() {
           </iframe> */}
         </div>
 
-        <h1 className="heading my-6">Beer Spots</h1>
+        <h1 className="heading mt-6 mb-2">Beer Spots</h1>
         <Places locations={locations} />
 
         <Legend />
