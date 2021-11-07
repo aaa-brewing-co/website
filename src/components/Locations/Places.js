@@ -21,7 +21,7 @@ export default function Places({ locations }) {
           filterText={filterText}
           onFilterTextChange={setFilterText} />
           <div className="type-selection">
-            <label class="checkbox">
+            <label className="checkbox">
               <img src={HopIcon} alt="Hop Icon" />
               <input type="checkbox" id="craft"
                 // checked={this.state.checked}
@@ -29,7 +29,7 @@ export default function Places({ locations }) {
               />
             </label>
 
-            <label class="checkbox">
+            <label className="checkbox">
               <img src={BeerIcon} alt="Beer Icon" />
               <input type="checkbox" id="beer"
                 // checked={this.state.checked}
@@ -37,7 +37,7 @@ export default function Places({ locations }) {
               />
             </label>
 
-            <label class="checkbox">
+            <label className="checkbox">
               <img src={BreweryIcon} alt="Brewery Icon" />
               <input type="checkbox" id="brewery"
                 // checked={this.state.checked}
