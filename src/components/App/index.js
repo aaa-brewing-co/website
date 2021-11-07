@@ -8,6 +8,7 @@ import Home from '../Home';
 import Beer from '../Beer';
 import Locations from '../Locations';
 import Admin from '../Admin';
+import Shops from '../Shops';
 import Error from "../Error";
 import Footer from "../commons/Footer";
 
@@ -19,6 +20,7 @@ function App()  {
         <Route path="/beer" component={Beer} />
         <Route path="/locations" component={Locations} />
         <Route path="/admin" component={Admin} />
+        <Route path="/shops" component={Shops} />
         <Route component={Error} />
       </Switch>
       <Footer/>

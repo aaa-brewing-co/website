@@ -15,7 +15,7 @@ function CreateForm(props) {
 
   const handleCreate = async (e) => {
     e.preventDefault()
-    if (!name.current.value || !type.current.value || !price.current.value || !address.current.value || !googleMap.current.value || !website.current.value || !untappd.current.value || !lon.current.value || !lat.current.value) {
+    if (!name.current.value || !type.current.value || !price.current.value || !address.current.value || !googleMap.current.value || !lon.current.value || !lat.current.value) {
       alert('You need fill up all the fields')
     } else {
       const data = {
@@ -41,13 +41,13 @@ function CreateForm(props) {
   return (
     <form>
       <div className="field">
-        <label className="label">Name</label>
+        <label className="label">Name*</label>
         <div className="control">
           <input className="input" ref={name} type="text" name="name" placeholder="Name" required/>
         </div>
       </div>
       <div className="field">
-        <label className="label">Type</label>
+        <label className="label">Type*</label>
         <div className="control select">
           <select name="type" ref={type}>
             <option value="beer">Beer Towers</option>
@@ -57,19 +57,19 @@ function CreateForm(props) {
         </div>
       </div>
       <div className="field">
-        <label className="label">Price</label>
+        <label className="label">Price*</label>
         <div className="control">
           <input className="input" ref={price} type="text" name="price" placeholder="Price"  required/>
         </div>
       </div>
       <div className="field">
-        <label className="label">Address</label>
+        <label className="label">Address*</label>
         <div className="control">
           <input className="input" ref={address} type="text" name="address" placeholder="Address"  required/>
         </div>
       </div>
       <div className="field">
-        <label className="label">Google Maps URL</label>
+        <label className="label">Google Maps URL*</label>
         <div className="control">
           <input className="input" ref={googleMap} type="text" name="googleMap" placeholder="Google Maps URL"  required/>
         </div>
@@ -87,13 +87,13 @@ function CreateForm(props) {
         </div>
       </div>
       <div className="field">
-        <label className="label">Longitude</label>
+        <label className="label">Longitude*</label>
         <div className="control">
           <input className="input" ref={lon} type="text" name="lon" placeholder="Longitude"  required/>
         </div>
       </div>
       <div className="field">
-        <label className="label">Latitude</label>
+        <label className="label">Latitude*</label>
         <div className="control">
           <input className="input" ref={lat} type="text" name="lat" placeholder="Latitude"  required/>
         </div>
