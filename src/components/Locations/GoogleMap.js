@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
+import { mapStyles } from './MapStyles';
+
 import HopIcon from "../../assets/icons/hop.png";
 import BeerIcon from "../../assets/icons/beer.png";
 import BreweryIcon from "../../assets/icons/brewery.png";
@@ -26,9 +28,15 @@ function Map({ center, zoom, locations }) {
   const ref = useRef();
 
   useEffect(() => {
+    // Google maps options ref
+    // https://developers.google.com/maps/documentation/javascript/overview
     const map = new window.google.maps.Map(ref.current, {
       center,
-      zoom
+      zoom,
+      mapTypeId: 'roadmap',
+      mapTypeControl: false,
+      streetViewControl: false,
+      styles: mapStyles
     });
     let markerPosition, icon;
     const infoWindow = new window.google.maps.InfoWindow();
