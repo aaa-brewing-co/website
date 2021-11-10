@@ -9,11 +9,13 @@ export default class DropdownFilter extends Component {
   render() {
     return (
       <div className="select">
-        <select className="dropdown">
-          {this.state.useDefault ? <option value="" defaultValue>Filter</option> : "" }
+        <select className="dropdown"
+          onChange={(e) => this.props.onFilterSelect(e.target.value)}
+        >
+          {this.state.useDefault ? <option value="" defaultValue>All</option> : "" }
           {this.state.data.map((option, i) => (
-            <option value={option.toLocaleLowerCase()} key={i}>{option}</option>
-        ))}
+            <option value={option} key={i}>{option}</option>
+          ))}
         </select>
       </div>
     )
