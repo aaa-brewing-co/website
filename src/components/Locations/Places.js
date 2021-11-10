@@ -9,9 +9,17 @@ import BeerIcon from "../../assets/icons/beer.png";
 import BreweryIcon from "../../assets/icons/brewery.png";
 
 // const filterOptions = [ "Price", "Untappd" ]
+const defaultTypes = ['craft', 'beer', 'brewery']
+const types = [
+  { type: "craft", icon: HopIcon },
+  { type: "beer", icon: BeerIcon },
+  { type: "brewery", icon: BreweryIcon }
+]
 
 export default function Places({ locations }) {
   const [filterText, setFilterText] = useState('')
+
+  const [filterTypes, setFilterTypes] = useState(defaultTypes)
 
   return (
     <>
@@ -20,31 +28,9 @@ export default function Places({ locations }) {
         <SearchBar
           filterText={filterText}
           onFilterTextChange={setFilterText} />
-          <div className="type-selection">
-            <label className="checkbox">
-              <img src={HopIcon} alt="Hop Icon" />
-              <input type="checkbox" id="craft"
-                // checked={this.state.checked}
-                // onChange={this.onChange}
-              />
-            </label>
-
-            <label className="checkbox">
-              <img src={BeerIcon} alt="Beer Icon" />
-              <input type="checkbox" id="beer"
-                // checked={this.state.checked}
-                // onChange={this.onChange}
-              />
-            </label>
-
-            <label className="checkbox">
-              <img src={BreweryIcon} alt="Brewery Icon" />
-              <input type="checkbox" id="brewery"
-                // checked={this.state.checked}
-                // onChange={this.onChange}
-              />
-            </label>
-          </div>
+        <TypeFilter types={types}
+          filterTypes={filterTypes}
+          onFilterTypesChange={setFilterTypes} />
         {/* <DropdownFilter data={filterOptions} useDefault={true} /> */}
       </div>
 
@@ -52,7 +38,8 @@ export default function Places({ locations }) {
         {/* TODO - LIMIT TO 6 + SHOW MORE */}
         <Locations
           locations={locations}
-          filterText={filterText} />
+          filterText={filterText}
+          filterTypes={filterTypes} />
       </div>
 
     </>
@@ -91,13 +78,18 @@ function RegionTabs() {
   )
 }
 
-function Locations({ locations, filterText }) {
+function Locations({ locations, filterText, filterTypes }) {
   const rows = []
 
   locations.forEach((location) => {
     if (location.data.name.toLocaleLowerCase().indexOf(filterText.toLocaleLowerCase()) === -1) {
       return
     }
+    const type = location.data.type
+    if (!filterTypes.some(i => type.includes(i))) {
+      return
+    }
+
     const directionsLink = "https://www.google.com/maps/dir//"+location.data.name
     rows.push(
       <div className="place" key={location.ref.id}>
@@ -145,5 +137,57 @@ function UntappdButton({href}) {
         <img src={untappd} className="untappd-logo" alt="Untappd Logo" loading="lazy" />
       </a>
     </div>
+  )
+}
+
+function TypeFilter({types, filterTypes, onFilterTypesChange}) {
+  const [checked, setChecked] = useState(
+    new Array(types.length).fill(true)
+  )
+
+  const handleCheck = (position) => {
+    let newFilterTypes = [...filterTypes]
+
+    const updatedCheckedState = checked.map((item, index) => {
+      let type = types[index].type
+
+      if (index === position) {
+        if (item) {
+          newFilterTypes.splice(newFilterTypes.indexOf(type), 1);
+        } else {
+          newFilterTypes.push(type)
+        }
+        return !item
+      } else {
+        return item
+      }
+    });
+
+    setChecked(updatedCheckedState);
+    return newFilterTypes;
+  };
+
+  return (
+    <>
+      <div className="tabs is-toggle">
+        <ul className="type-selection is-justify-content-center">
+          {types.map( (type, i) => (
+          <li key={i}>
+            <a href="#">
+              <span>
+                <label className="checkbox">
+                  <img src={type.icon} alt="Hop Icon"
+                    className={`${type.type} ${checked[i] ? '' : 'unchecked'}`} />
+                  <input type="checkbox"
+                    checked={checked[i]}
+                    onChange={() => onFilterTypesChange(handleCheck(i)) } />
+                </label>
+              </span>
+            </a>
+          </li>
+          ))}
+        </ul>
+      </div>
+    </>
   )
 }
