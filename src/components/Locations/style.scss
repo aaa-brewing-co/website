@@ -44,6 +44,37 @@
 
   .tabs {
     &.is-toggle {
+
+      .type-selection {
+        width: 75%;
+        text-align: center;
+
+        a {
+          padding: 0em;
+        }
+
+        img {
+          width: 3em;
+          vertical-align: middle;
+
+          &.unchecked {
+            filter: grayscale(100%);
+          }
+
+          &.craft {
+            padding: .1em;
+          }
+
+          &.brewery {
+            padding: .3em;
+          }
+        }
+
+        input[type=checkbox] {
+          display: none;
+        }
+      }
+
       li {
         &.is-active {
           a {
@@ -71,29 +102,6 @@
           padding: .3em .6em;
         }
       }
-    }
-  }
-
-  .type-selection {
-    width: 75%;
-    text-align: center;
-
-    @media screen and (max-width: 767px) {
-      width: 100%;
-      padding-top: .5em;
-    }
-
-    img {
-      height: 2em;
-      vertical-align: middle;
-    }
-
-    input[type=checkbox] {
-      display: none;
-    }
-
-    input:checked ~ label {
-      filter: grayscale(0%);
     }
   }
 
