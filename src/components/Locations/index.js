@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Navbar from "../commons/Navbar";
 import Map from "./GoogleMap";
-import Places from "./Places";
+import Places from "./Places/";
 import Legend from "./Legend";
 
 import { getAllLocations } from "../../api"
