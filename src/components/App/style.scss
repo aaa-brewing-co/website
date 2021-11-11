@@ -68,6 +68,7 @@ body {
     position: relative;
     z-index: 1000;
     padding: 0 4rem;
+    text-align: center;
 
     @media screen and (max-width: 767px) {
       max-width: 100%;
@@ -149,4 +150,11 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .shh {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: .5em;
+  }
 }
