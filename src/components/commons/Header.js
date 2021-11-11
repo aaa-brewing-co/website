@@ -4,7 +4,8 @@ import React, { Component } from "react";
 export default class Header extends Component {
   state = {
     title: this.props.title,
-    subtitle: this.props.subtitle
+    subtitle: this.props.subtitle,
+    emoji: this.props.emoji,
   };
 
   render() {
@@ -13,7 +14,7 @@ export default class Header extends Component {
         <div className="wrap">
           <h1 className="heading">{this.state.title}</h1>
           <p className="subheading">{this.state.subtitle}</p>
-          🍻
+          {this.state.emoji}
         </div>
 
         {/* <img src={logo} className="App-logo" alt="logo" width="200" height="200" loading="lazy" />

@@ -15,6 +15,7 @@ function Home() {
       <Header
         title="Explore the world of craft beer"
         subtitle={"Curated by 3 (drunk) friends.\nAAA aims to spread the love of beer and serve as a resource for craft beer knowledge and locations in Singapore."}
+        emoji="🍻"
       />
 
       {/* <BeerAnimation /> */}
