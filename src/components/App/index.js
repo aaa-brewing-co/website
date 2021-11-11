@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 
 import './style.scss';
@@ -10,17 +10,25 @@ import Locations from '../Locations';
 import Admin from '../Admin';
 import Shops from '../Shops';
 import Error from "../Error";
+import Login from "../Admin/Login"
+
 import Footer from "../commons/Footer";
 
 function App()  {
+  const [token, setToken] = useState();
+
   return (
     <div className="App">
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/beer" component={Beer} />
         <Route path="/locations" component={Locations} />
-        <Route path="/admin" component={Admin} />
         <Route path="/shops" component={Shops} />
+
+        <Route path="/admin">
+          {token ? <Admin /> : <Login setToken={setToken} />}
+        </Route>
+
         <Route component={Error} />
       </Switch>
       <Footer/>

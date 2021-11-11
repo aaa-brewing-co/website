@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../commons/Navbar";
 import './style.scss';
 
-import CreateForm from "./CreateForm";
 import { getAllLocations, deleteLocation } from "../../api";
+import CreateForm from "./CreateForm";
+// import CreateUser from "./CreateUser";
 import EditForm from "./EditForm";
 
 function Admin() {
@@ -82,7 +83,10 @@ function Admin() {
     <div className="admin">
       <Navbar />
       <div className="main">
-        <button className="button is-primary" type="button" onClick={toggleClass}>Add Location</button>
+        <div className="buttons">
+          <button className="button is-primary" type="button" onClick={toggleClass}>Add Location</button>
+          <button className="button is-primary" type="button" onClick={toggleClass}>Add User</button>
+        </div>
 
         <div className={isActive ? 'modal is-active' : 'modal'}>
           <div className="modal-background"></div>

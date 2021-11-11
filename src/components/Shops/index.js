@@ -52,6 +52,11 @@ const shops = [
     name: "Thirsty",
     description: "",
     url: "https://www.thirsty.com.sg/"
+  },
+  {
+    name: "Arvo",
+    description: "",
+    url: "https://www.arvodrinks.asia/"
   }
 ]
 

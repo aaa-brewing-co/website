@@ -1,12 +1,16 @@
 import React from "react";
 
 import Navbar from "./commons/Navbar";
+import Header from "./commons/Header";
 
 function Error() {
   return (
-    <div className="about">
+    <div className="error">
       <Navbar />
-      <h1>ERROR</h1>
+      <Header
+        title="ONO GOT ERROR"
+        emoji="😰"
+      />
     </div>
   );
 };
