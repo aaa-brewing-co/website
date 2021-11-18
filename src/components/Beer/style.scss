@@ -110,4 +110,44 @@
       }
     }
   }
+
+  .tasting-guide {
+    .tabs {
+      a {
+        border-right: none;
+        border-left: none;
+        border-bottom-color: var(--quaternary-color);
+      }
+
+      ul {
+        border-bottom-color: var(--quaternary-color);
+      }
+
+      &.is-boxed {
+        a {
+          &:hover {
+            background-color: var(--main-color);
+            color: var(--secondary-color);
+          }
+        }
+
+        li {
+          a {
+            color: var(--quaternary-color);
+          }
+
+          &.is-active {
+            a {
+              background-color: var(--tertiary-color);    border-color: var(--quaternary-color);
+              color: var(--secondary-color);
+            }
+          }
+        }
+      }
+    }
+    .tab-content {
+      width: 55vw;
+      text-align: center;
+    }
+  }
 }
